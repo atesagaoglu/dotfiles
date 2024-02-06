@@ -1,5 +1,3 @@
-# zmodload zsh/zprof
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -17,7 +15,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 ### ZNAP ###
 source ~/repos/zsh/znap/znap.zsh  # Start Znap
 
-### PROMPT ###
 znap eval starship 'starship init zsh --print-full-init'
 znap prompt
 
@@ -36,7 +33,8 @@ export GOPATH="/home/atesagaoglu/.go"
 export PATH="$PATH:/home/atesagaoglu/sdk/flutter/bin"
 export PATH="$PATH:/home/atesagaoglu/android/Sdk/cmdline-tools/latest/bin"
 export PATH="$PATH:/home/atesagaoglu/android/Sdk/platform-tools"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$gopath/bin"
+export PATH="$PATH:/home/atesagaoglu/.bin"
 
 export CHROME_EXECUTABLE="/var/lib/flatpak/exports/bin/org.chromium.Chromium"
 
@@ -71,10 +69,19 @@ alias xclip='xclip -selection c'
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 
 bindkey -s '^f' 'fd\n'
-clear-terminal() { tput reset; zle redisplay; }
-zle -N clear-terminal
-bindkey '^e' clear-terminal
 
+### FZF COMPLETIONS ###
 source /usr/share/fzf/shell/key-bindings.zsh
 source /usr/share/fzf/shell/completion.zsh
-# zprof
+
+### FUNCTIONS ###
+# execute a command without attaching it to the terminal
+disexec() {
+    local cli="$BUFFER"
+    # echo "\nbuf: $cli"
+    eval "$cli" &
+    eval disown
+    zle reset-prompt
+}
+zle -N disexec
+bindkey '^e' disexec
