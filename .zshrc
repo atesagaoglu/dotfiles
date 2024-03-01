@@ -11,6 +11,7 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # End of lines added by compinstall
+setopt complete_aliases
 
 ### ZNAP ###
 source ~/repos/zsh/znap/znap.zsh  # Start Znap
@@ -25,21 +26,18 @@ znap source qoomon/zsh-lazyload
 
 ### EXPORT ###
 export EDITOR="nvim"
-export TERM="xterm-kitty"
-
+export TERM="alacritty"
 export MANPAGER="nvim +Man!"
 export GOPATH="/home/atesagaoglu/.go"
-
 export PATH="$PATH:/home/atesagaoglu/sdk/flutter/bin"
 export PATH="$PATH:/home/atesagaoglu/android/Sdk/cmdline-tools/latest/bin"
 export PATH="$PATH:/home/atesagaoglu/android/Sdk/platform-tools"
 export PATH="$PATH:$gopath/bin"
 export PATH="$PATH:/home/atesagaoglu/.bin"
-
+export JAVA_HOME="/home/atesagaoglu/sdk/java/jdk-21.0.2/"
+export PATH="$JAVA_HOME/bin:$PATH"
 export CHROME_EXECUTABLE="/var/lib/flatpak/exports/bin/org.chromium.Chromium"
-
 export QT_QPA_PLATFORMTHEME="qt5ct"
-
 export DENO_INSTALL="/home/atesagaoglu/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
@@ -52,18 +50,14 @@ source ~/.fnmcomp
 alias ls='eza --color=always'
 alias ll='eza -l --color=always --icons'
 alias lla='eza -la --color=always --icons'
-
-alias fd='cd $(find $HOME -type d | fzf);clear'
-
+alias ff='cd $(find $HOME -type d | fzf);clear'
 alias update-grub='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
-
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)" '
-
 alias nv='nvim'
-
+alias yz='yazi'
 alias py='python3'
-
 alias xclip='xclip -selection c'
+alias norg='nvim ~/neorg'
 
 ### DOT MANAGEMENT ###
 alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
@@ -85,3 +79,11 @@ disexec() {
 }
 zle -N disexec
 bindkey '^e' disexec
+
+function fsize {
+    fontsize $1
+}
+function fsize12 {
+    fsize 12
+}
+# bindkey '^a' fsize12

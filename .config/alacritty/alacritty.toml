@@ -1,0 +1,34 @@
+[font]
+size = 18
+
+[window]
+startup_mode = "maximized"
+dynamic_padding = true
+
+[font.normal]
+family = "VictorMono Nerd Font"
+style = "Regular"
+
+[colors.primary]
+background = "#282c34"
+foreground = "#979eab"
+
+[colors.normal]
+black = "#282c31"
+red = "#E06C75"
+green = "#98C379"
+yellow = "#eac07b"
+blue = "#61AFEF"
+magenta = "#be5046"
+cyan = "#56B6C2"
+white = "#979eab"
+
+[colors.bright]
+black = "#393e48"
+red = "#d19a66"
+green = "#56b6c2"
+yellow = "#e5c07b"
+blue = "#61AFEF"
+magenta = "#be5046"
+cyan = "#56B6C2"
+white = "#abb2bf"
