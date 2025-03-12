@@ -1,0 +1,1 @@
+bindkey '^A' clear-screen

@@ -1,0 +1,5 @@
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+qoomon/zsh-lazyload
+zsh-users/zsh-history-substring-search
+jeffreytse/zsh-vi-mode

@@ -1,0 +1,6 @@
+[user]
+	email = atesagaoglu.mertemre@gmail.com
+	name = atesagaoglu
+
+[alias]
+    undo = reset --soft HEAD^
