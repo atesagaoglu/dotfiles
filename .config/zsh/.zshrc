@@ -19,14 +19,7 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-source $HOME/.config/zsh/.antidote/antidote.zsh
-antidote load
-
-zmodload zsh/terminfo
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+source $ZDOTDIR/znap.sh
 
 export DOTFILES=$HOME/.dots
 
